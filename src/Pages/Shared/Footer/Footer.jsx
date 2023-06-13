@@ -1,4 +1,7 @@
 const Footer = () => {
+	const getYear=()=> {
+    return new Date().getFullYear();
+}
 	return (
 		<footer className="footer p-10 bg-base-200 text-base-content">
   <div>
@@ -30,6 +33,7 @@ const Footer = () => {
       <div className="relative">
         <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" /> 
         <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
+	<p>copyright@ {getYear()}</p>
       </div>
     </div>
   </div>
