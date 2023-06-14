@@ -3,8 +3,8 @@ import { Carousel } from 'react-responsive-carousel';
 
 const Banner = () => {
 	return (
-		<Carousel className="">
-                <div >
+		<Carousel className="" infiniteLoop centerMode>
+                <div className="" >
                     <img src="home/01.jpg" />
                 </div>
                 <div>
