@@ -2,6 +2,7 @@ import Banner from "../Banner/Banner";
 import CallUs from "../CallUs/CallUs";
 import Category from "../Category/Category";
 import ChiefRecommended from "../ChiefRecommended/ChiefRecommended";
+import Featured from "../Featured/Featured";
 import InfoSection from "../InfoSection/InfoSection";
 import Menu from "../Menu/Menu";
 
@@ -15,6 +16,7 @@ const Home = () => {
 		<br />
 		<CallUs/>
 		<ChiefRecommended/>
+		<Featured/>
 		</>
 	);
 }
