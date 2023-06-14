@@ -13,21 +13,7 @@ const Navbar = () => {
             title="Company"
             className="inline-flex items-center"
           >
-            <svg
-              className="w-8 text-teal-accent-400"
-              viewBox="0 0 24 24"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeMiterlimit="10"
-              stroke="currentColor"
-              fill="none"
-            >
-              <rect x="3" y="1" width="7" height="12" />
-              <rect x="3" y="17" width="7" height="6" />
-              <rect x="14" y="1" width="7" height="6" />
-              <rect x="14" y="11" width="7" height="12" />
-            </svg>
+           <img className="h-9" src="/logo.png" alt="" />
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
               IL-PIACERE
             </span>
@@ -36,11 +22,11 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                aria-label="Our product"
-                title="Our product"
+                aria-label="Contact Us"
+                title="Contact Us"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
-                Product
+               Contact Us
               </a>
             </li>
             <li>
@@ -50,7 +36,7 @@ const Navbar = () => {
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
-                Features
+              Dashboard
               </a>
             </li>
             <li>
@@ -60,7 +46,7 @@ const Navbar = () => {
                 title="Product pricing"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
-                Pricing
+               Our Menu
               </a>
             </li>
             <li>
@@ -160,11 +146,11 @@ const Navbar = () => {
                       <li>
                         <a
                           href="/"
-                          aria-label="Our product"
-                          title="Our product"
+                          aria-label="Contact Us"
+                          title="Contact Us"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Product
+                         Contact Us
                         </a>
                       </li>
                       <li>
@@ -174,7 +160,7 @@ const Navbar = () => {
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Features
+                        Dashboard
                         </a>
                       </li>
                       <li>
@@ -184,7 +170,7 @@ const Navbar = () => {
                           title="Product pricing"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Pricing
+                         Our Menu
                         </a>
                       </li>
                       <li>
