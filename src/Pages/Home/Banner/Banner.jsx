@@ -5,7 +5,7 @@ const Banner = () => {
 	return (
 		<Carousel className="" infiniteLoop centerMode>
                 <div className="" >
-                    <img src="https://i.ibb.co/3RBp3Kr/01.jpg" />
+                    <img src="home/01.jpg" />
                 </div>
                 <div>
                     <img src="home/02.jpg" />

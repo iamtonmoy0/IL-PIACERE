@@ -1,7 +1,30 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import * as RoutePath from '../../../Routes/RoutePath'
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const navItem=<>
+                 
+            <Link  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to=''>
+              
+              Dashboard
+              
+            </Link>
+            <Link  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to={RoutePath.MENU}>
+              
+               Our Menu
+              
+            </Link>  
+            <Link  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to={RoutePath.CONTACT}>
+            
+               Contact Us
+              
+            </Link>
+            <Link to={RoutePath.ABOUT}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                About us
+             </Link>
+                </>
 	return (
 		<>
 		<div className="bg-gray-900 fixed z-10 bg-opacity-50 w-full">
@@ -19,46 +42,8 @@ const Navbar = () => {
             </span>
           </a>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-            <li>
-              <a
-                href="/"
-                aria-label="Contact Us"
-                title="Contact Us"
-                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-               Contact Us
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                aria-label="Our product"
-                title="Our product"
-                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-              Dashboard
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                aria-label="Product pricing"
-                title="Product pricing"
-                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-               Our Menu
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                aria-label="About us"
-                title="About us"
-                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                About us
-              </a>
-            </li>
+         {navItem}
+
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
@@ -143,46 +128,7 @@ const Navbar = () => {
                   </div>
                   <nav>
                     <ul className="space-y-4">
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="Contact Us"
-                          title="Contact Us"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                         Contact Us
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="Our product"
-                          title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                        Dashboard
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="Product pricing"
-                          title="Product pricing"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                         Our Menu
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="About us"
-                          title="About us"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          About us
-                        </a>
-                      </li>
+                      {navItem}
                       <li>
                         <a
                          
