@@ -6,9 +6,9 @@ const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false); 
   const navItem=<>
                  
-            <Link  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to=''>
+            <Link to={RoutePath.DASHBOARD} className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to=''>
               
-              Dashboard
+              Home
               
             </Link>
             <Link  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to={RoutePath.MENU}>
@@ -16,9 +16,9 @@ const Navbar = () => {
                Our Menu
               
             </Link>  
-            <Link  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to={RoutePath.CONTACT}>
+            <Link  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to={RoutePath.SHOP}>
             
-               Contact Us
+               Our Shop
               
             </Link>
             <Link to={RoutePath.ABOUT}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">

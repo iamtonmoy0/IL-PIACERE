@@ -3,6 +3,7 @@ import * as RoutePath from './RoutePath.js'
 import Main from "../Layouts/Main.jsx";
 import Home from "../Pages/Home/Home/Home.jsx";
 import Menu from "../Pages/Menu/Menu/Menu.jsx";
+import OrderPage from "../Pages/Order/OrderPage/OrderPage.jsx";
 
 
 export const route= createBrowserRouter([
@@ -18,7 +19,9 @@ export const route= createBrowserRouter([
 				path:RoutePath.MENU,
 				element:<Menu/>
 			},
-			{
+			{  
+				path:RoutePath.SHOP,
+				element:<OrderPage/>
 
 			}
 		]

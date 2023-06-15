@@ -1,5 +1,5 @@
 export const DASHBOARD='/'
 export const MENU ='/menu'
-export const CONTACT ='/contact'
+export const SHOP ='/shop'
 export const ABOUT ='/about'
 // export const MENU ='/ll'
