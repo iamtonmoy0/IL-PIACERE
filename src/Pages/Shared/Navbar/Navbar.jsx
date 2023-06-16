@@ -24,6 +24,10 @@ const Navbar = () => {
             <Link to={RoutePath.ABOUT}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
                 About us
              </Link>
+                <Link  to={RoutePath.LOGIN} className="btn w-32 normal-case hover:bg-purple-700 bg-purple-400 text-white text-md border-0 outline-none">
+                Login
+                </Link>        
+                      
                 </>
 	return (
 		<>
@@ -45,18 +49,7 @@ const Navbar = () => {
          {navItem}
 
           </ul>
-          <ul className="flex items-center hidden space-x-8 lg:flex">
-            <li>
-              <a
-                href="/"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign up
-              </a>
-            </li>
-          </ul>
+          
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"
@@ -129,16 +122,7 @@ const Navbar = () => {
                   <nav>
                     <ul className="space-y-4">
                       {navItem}
-                      <li>
-                        <a
-                         
-                          className=" inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          Sign up
-                        </a>
-                      </li>
+                     
                     </ul>
                   </nav>
                 </div>

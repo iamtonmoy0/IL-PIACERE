@@ -4,6 +4,7 @@ import Main from "../Layouts/Main.jsx";
 import Home from "../Pages/Home/Home/Home.jsx";
 import Menu from "../Pages/Menu/Menu/Menu.jsx";
 import OrderPage from "../Pages/Order/OrderPage/OrderPage.jsx";
+import Login from "../Pages/Login/Login.jsx";
 
 
 export const route= createBrowserRouter([
@@ -23,7 +24,12 @@ export const route= createBrowserRouter([
 				path:RoutePath.SHOP,
 				element:<OrderPage/>
 
-			}
+			},
+			{
+				path:RoutePath.LOGIN,
+				element:<Login/>
+			},
+
 		]
 	}
 ])
