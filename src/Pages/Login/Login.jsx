@@ -1,6 +1,32 @@
+import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 
 const Login = () => {
+	const captchaRef=useRef(null)
+	// submit button disable state
+	const [disable,setDisable]=useState();
+	useEffect(()=>{
+
+		loadCaptchaEnginge(6)
+	},[])
+// captcha
+	const handleCaptcha=()=>{
+		const captcha=captchaRef.current.value;
+		console.log(captcha)
+		//checking captcha validation 
+		if(validateCaptcha(captcha)) return
+
+	}
+	// handle log in
+	const handleLogin=(e)=>{
+		e.preventDefault();
+		const form = e.target;
+		const name = form.name.value;
+		const email = form.email.value;
+		const pass = form.password.value;
+		console.log(name,email,pass)
+	}
 	return (
 		<>
 		<Helmet>
@@ -20,14 +46,14 @@ const Login = () => {
             <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                 Enjoy The Best Meal <br className="hidden md:block" />
-                Of Town{' '}
+                Of Town
                 <span className="text-teal-accent-400">!!</span>
               </h2>
               <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, excepturi.
               </p>
               <a
-                href="/"
+                
                 aria-label=""
                 className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-400 hover:text-teal-accent-700"
               >
@@ -46,7 +72,7 @@ const Login = () => {
                 <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
                   Sign in for order
                 </h3>
-                <form >
+                <form onSubmit={handleLogin} >
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="Name"
@@ -81,6 +107,23 @@ const Login = () => {
                       name="email"
                     />
                   </div>
+		{/* captcha */}
+		<div className="mb-1 sm:mb-2">
+                    <label
+                      className="inline-block mb-1 font-medium"
+                    >
+                      <LoadCanvasTemplate />
+                    </label>
+                    <input
+                      ref={captchaRef}
+                      type="text"
+                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                      id="captcha"
+                      name="captcha"
+                    />
+		<button className="btn btn-primary  normal-case" onClick={handleCaptcha}>Validate</button>
+                  </div>
+		
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="email"
