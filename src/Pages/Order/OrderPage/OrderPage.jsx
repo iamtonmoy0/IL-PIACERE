@@ -26,7 +26,7 @@ const pizza = menu.filter(m=>m.category==='pizza');
 
 
 			<Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-			<TabList>
+			<TabList className='border-0 ml-[550px]'>
 				<Tab>Salad</Tab>
 				<Tab>Pizza</Tab>
 				<Tab>Dessert</Tab>
