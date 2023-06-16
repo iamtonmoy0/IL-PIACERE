@@ -5,7 +5,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 const Login = () => {
 	const captchaRef=useRef(null)
 	// submit button disable state
-	const [disable,setDisable]=useState();
+	const [disable,setDisable]=useState(true);
 	useEffect(()=>{
 
 		loadCaptchaEnginge(6)
@@ -13,9 +13,10 @@ const Login = () => {
 // captcha
 	const handleCaptcha=()=>{
 		const captcha=captchaRef.current.value;
-		console.log(captcha)
+		
 		//checking captcha validation 
-		if(validateCaptcha(captcha)) return
+		if(validateCaptcha(captcha)) return setDisable(false)
+		else return alert('wrong captcha')
 
 	}
 	// handle log in
@@ -121,7 +122,7 @@ const Login = () => {
                       id="captcha"
                       name="captcha"
                     />
-		<button className="btn btn-primary  normal-case" onClick={handleCaptcha}>Validate</button>
+		<button className="btn btn-primary  normal-case ml-32 " onClick={handleCaptcha}>Validate</button>
                   </div>
 		
                   <div className="mb-1 sm:mb-2">
@@ -140,7 +141,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="mt-4 mb-2 sm:mb-4">
-                    <button
+                    <button disabled={disable}
                       type="submit"
                       className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
                     >
