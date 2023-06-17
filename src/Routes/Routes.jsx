@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home/Home.jsx";
 import Menu from "../Pages/Menu/Menu/Menu.jsx";
 import OrderPage from "../Pages/Order/OrderPage/OrderPage.jsx";
 import Login from "../Pages/Login/Login.jsx";
+import SignUp from "../Pages/SignUp/SignUp.jsx";
 
 
 export const route= createBrowserRouter([
@@ -29,6 +30,11 @@ export const route= createBrowserRouter([
 				path:RoutePath.LOGIN,
 				element:<Login/>
 			},
+			{
+				path:RoutePath.SIGNUP,
+				element:<SignUp/>
+			},
+			
 
 		]
 	}

@@ -1,11 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from "../../context/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 	const captchaRef=useRef(null)
 	// submit button disable state
 	const [disable,setDisable]=useState(true);
+  const {signIn}=useContext(AuthContext); //auth context
+
 	useEffect(()=>{
 
 		loadCaptchaEnginge(6)
@@ -27,6 +31,12 @@ const Login = () => {
 		const email = form.email.value;
 		const pass = form.password.value;
 		console.log(name,email,pass)
+    signIn(email,pass)
+    .then(()=>{})
+    .then(error=>{
+      alert(error.message)
+    })
+
 	}
 	return (
 		<>
@@ -53,10 +63,8 @@ const Login = () => {
               <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, excepturi.
               </p>
-              <a
-                
-                aria-label=""
-                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-400 hover:text-teal-accent-700"
+              <Link   
+               className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-400 hover:text-teal-accent-700"
               >
                 New To This Site ,Register here 
                 <svg
@@ -66,7 +74,7 @@ const Login = () => {
                 >
                   <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
                 </svg>
-              </a>
+              </Link>
             </div>
             <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
               <div className="bg-gray-50  rounded-md shadow-2xl p-7 sm:p-10">
