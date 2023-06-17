@@ -1,38 +1,50 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from "../../context/AuthProvider";
 import { Link } from "react-router-dom";
+import loginImg from '../../assets/contact/banner.jpg';
+import { SIGNUP } from "../../Routes/RoutePath";
+import Swal from "sweetalert2";
 
 const Login = () => {
-	const captchaRef=useRef(null)
 	// submit button disable state
 	const [disable,setDisable]=useState(true);
-  const {signIn}=useContext(AuthContext); //auth context
+  const {logIn}=useContext(AuthContext); //auth context
 
 	useEffect(()=>{
 
 		loadCaptchaEnginge(6)
 	},[])
 // captcha
-	const handleCaptcha=()=>{
-		const captcha=captchaRef.current.value;
+	const handleCaptcha=(e)=>{
+		const captcha=e.target.value;
 		
 		//checking captcha validation 
 		if(validateCaptcha(captcha)) return setDisable(false)
-		else return alert('wrong captcha')
+		else return Swal.fire('Wrong captcha.Try again') ;
+
 
 	}
 	// handle log in
 	const handleLogin=(e)=>{
 		e.preventDefault();
 		const form = e.target;
-		const name = form.name.value;
 		const email = form.email.value;
 		const pass = form.password.value;
-		console.log(name,email,pass)
-    signIn(email,pass)
-    .then(()=>{})
+		console.log(email,pass)
+    logIn(email,pass)
+    .then(()=>{
+       Swal.fire({
+                    title: 'User Login Successful.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+    })
     .then(error=>{
       alert(error.message)
     })
@@ -47,7 +59,7 @@ const Login = () => {
 
 			<div className="relative">
       <img
-        src="../../../public/contact/banner.jpg "
+        src={loginImg}
         className="absolute inset-0 object-cover w-full h-full"
         alt=""
       />
@@ -63,7 +75,7 @@ const Login = () => {
               <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, excepturi.
               </p>
-              <Link   
+              <Link   to={SIGNUP}
                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-400 hover:text-teal-accent-700"
               >
                 New To This Site ,Register here 
@@ -82,23 +94,6 @@ const Login = () => {
                   Sign in for order
                 </h3>
                 <form onSubmit={handleLogin} >
-                  <div className="mb-1 sm:mb-2">
-                    <label
-                      htmlFor="Name"
-                      className="inline-block mb-1 font-medium"
-		
-                    >
-                      Name
-                    </label>
-                    <input
-                      placeholder="John"
-                      required
-                      type="text"
-                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                      id="firstName"
-                      name="name"
-                    />
-                  </div>
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="email"
@@ -124,13 +119,13 @@ const Login = () => {
                       <LoadCanvasTemplate />
                     </label>
                     <input
-                      ref={captchaRef}
+                      onBlur={handleCaptcha}
                       type="text"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="captcha"
                       name="captcha"
                     />
-		<button className="btn btn-primary  normal-case ml-32 " onClick={handleCaptcha}>Validate</button>
+		
                   </div>
 		
                   <div className="mb-1 sm:mb-2">

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import * as RoutePath from '../../../Routes/RoutePath'
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const {user,logOut}=useContext(AuthContext)
   const navItem=<>
                  
             <Link to={RoutePath.DASHBOARD} className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to=''>
@@ -24,9 +26,13 @@ const Navbar = () => {
             <Link to={RoutePath.ABOUT}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
                 About us
              </Link>
-                <Link  to={RoutePath.LOGIN} className="btn w-32 normal-case hover:bg-purple-700 bg-purple-400 text-white text-md border-0 outline-none">
+                        {
+                          user? <><Link onClick={()=>logOut()} className="btn w-32 normal-case hover:bg-purple-700 bg-purple-400 text-white text-md border-0 outline-none">
+                Log Out
+                </Link></>: <><Link  to={RoutePath.LOGIN} className="btn w-32 normal-case hover:bg-purple-700 bg-purple-400 text-white text-md border-0 outline-none">
                 Login
-                </Link>        
+                </Link></>
+                        }
                       
                 </>
 	return (
