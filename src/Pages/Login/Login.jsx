@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from "../../context/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from '../../assets/contact/banner.jpg';
 import { SIGNUP } from "../../Routes/RoutePath";
 import Swal from "sweetalert2";
@@ -12,6 +12,10 @@ const Login = () => {
 	// submit button disable state
 	const [disable,setDisable]=useState(true);
   const {logIn,loading,setLoading}=useContext(AuthContext); //auth context
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  const from = location.state?.from?.pathname || '/'
   
 	useEffect(()=>{
     
@@ -35,20 +39,22 @@ const handleLogin=(e)=>{
   const pass = form.password.value;
   console.log(email,pass)
   logIn(email,pass)
-    .then(()=>{
+    .then(async()=>{
        Swal.fire({
-                    title: 'User Login Successful.',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                      },
+        title: 'User Login Successful.',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
                       hideClass: {
                         popup: 'animate__animated animate__fadeOutUp'
                       }
                     });
-                    setLoading(false);
+                   await navigate(from,{replace:true})
+                    setLoading(false);//loader
                   })
-                  .then(error=>{
-                    alert(error.message)
+
+    .then(error=>{
+      alert(error.message)
     })
     
 	}
