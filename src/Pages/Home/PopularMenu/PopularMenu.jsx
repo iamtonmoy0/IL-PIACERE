@@ -1,10 +1,12 @@
 
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useMenu from "../../../hooks/UseMenu";
+import Loading from "../../Loading/Loading";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 
 const PopularMenu = () => {
-	const [menu]=useMenu();
+	const [menu,loading]=useMenu();
+	if(loading) return <Loading/>;
 	const popular =menu.filter(m=>m.category==='popular') //from hooks
 	
 	return (

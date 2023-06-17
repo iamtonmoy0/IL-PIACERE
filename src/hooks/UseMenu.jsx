@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const useMenu = () => {
     const [menu, setMenu] = useState([]);
     const [loading, setLoading] = useState(true);
+    
     useEffect(() => {
         fetch('https://il-piacere-server.vercel.app/menu')
             .then(res => res.json())
@@ -12,6 +13,7 @@ const useMenu = () => {
             });
     }, [])
     return [menu, loading]
+    
 }
 
 export default useMenu;

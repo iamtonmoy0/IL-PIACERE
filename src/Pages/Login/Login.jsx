@@ -6,50 +6,53 @@ import { Link } from "react-router-dom";
 import loginImg from '../../assets/contact/banner.jpg';
 import { SIGNUP } from "../../Routes/RoutePath";
 import Swal from "sweetalert2";
+import Loading from "../Loading/Loading";
 
 const Login = () => {
 	// submit button disable state
 	const [disable,setDisable]=useState(true);
-  const {logIn}=useContext(AuthContext); //auth context
-
+  const {logIn,loading,setLoading}=useContext(AuthContext); //auth context
+  
 	useEffect(()=>{
-
+    
 		loadCaptchaEnginge(6)
 	},[])
 // captcha
-	const handleCaptcha=(e)=>{
-		const captcha=e.target.value;
-		
-		//checking captcha validation 
-		if(validateCaptcha(captcha)) return setDisable(false)
-		else return Swal.fire('Wrong captcha.Try again') ;
-
-
-	}
-	// handle log in
-	const handleLogin=(e)=>{
-		e.preventDefault();
-		const form = e.target;
-		const email = form.email.value;
-		const pass = form.password.value;
-		console.log(email,pass)
-    logIn(email,pass)
+const handleCaptcha=(e)=>{
+  const captcha=e.target.value;
+  
+  //checking captcha validation 
+  if(validateCaptcha(captcha)) return setDisable(false)
+  else return Swal.fire('Wrong captcha.Try again') ;
+  
+  
+}
+// handle log in
+const handleLogin=(e)=>{
+  e.preventDefault();
+  const form = e.target;
+  const email = form.email.value;
+  const pass = form.password.value;
+  console.log(email,pass)
+  logIn(email,pass)
     .then(()=>{
        Swal.fire({
                     title: 'User Login Successful.',
                     showClass: {
                         popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
+                      },
+                      hideClass: {
                         popup: 'animate__animated animate__fadeOutUp'
-                    }
-                });
+                      }
+                    });
+                    setLoading(false);
+                  })
+                  .then(error=>{
+                    alert(error.message)
     })
-    .then(error=>{
-      alert(error.message)
-    })
-
+    
 	}
+  if(loading) return <Loading/>;
 	return (
 		<>
 		<Helmet>

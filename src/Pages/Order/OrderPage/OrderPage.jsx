@@ -7,13 +7,17 @@ import useMenu from "../../../hooks/UseMenu";
 import FoodCard from "../FoodCard/FoodCard";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-const OrderPage = () => {
+import Loading from "../../Loading/Loading";
 
+
+const OrderPage = () => {
 	const categories=['salad','pizza','dessert','soup','drinks'];
 	const {category}=useParams();
 	const initialIndex=categories.indexOf(category);
  const [tabIndex, setTabIndex] = useState(initialIndex);
- const [menu]=useMenu();
+ const [menu,loading]=useMenu();
+//  loading
+if (loading) return <Loading/>;
  const drinks = menu.filter(m=>m.category==='drinks');
 const soup = menu.filter(m=>m.category==='soup');
 const dessert = menu.filter(m=>m.category==='dessert');

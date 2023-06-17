@@ -8,9 +8,13 @@ import soupImg from '../../../assets/menu/soup-bg.jpg'
 import saladImg from '../../../assets/menu/salad-bg.jpg'
 import pizzaImg from '../../../assets/menu/pizza-bg.jpg'
 import dessertImg from '../../../assets/menu/dessert-bg.jpeg'
+import Loading from "../../Loading/Loading";
 
 const Menu = () => {
-const [menu]=useMenu()
+const [menu,loading]=useMenu()
+if(loading){
+	return <Loading/>
+}
 const offer = menu.filter(m=>m.category==='offered');
 const soup = menu.filter(m=>m.category==='soup');
 const dessert = menu.filter(m=>m.category==='dessert');
