@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import * as RoutePath from '../../../Routes/RoutePath'
 import { AuthContext } from "../../../context/AuthProvider";
+import cartImg from '../../../assets/cart.gif'
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false); 
@@ -23,8 +24,11 @@ const Navbar = () => {
                Our Shop
               
             </Link>
-            <Link to={RoutePath.ABOUT}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
-                About us
+            <Link to={RoutePath.CART}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                <button className="btn bg-transparent border-0 text-white hover:bg-lime-400">
+                  <img src={cartImg} alt="" className="h-9" />
+                <div className="badge bg-red-400">+99</div>
+              </button>
              </Link>
                         {
                           user? <><Link onClick={()=>logOut()} className="btn w-32 normal-case hover:bg-purple-700 bg-purple-400 text-white text-md border-0 outline-none">

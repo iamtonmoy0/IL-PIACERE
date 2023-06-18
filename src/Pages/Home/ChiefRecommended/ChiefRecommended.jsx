@@ -5,7 +5,7 @@ const ChiefRecommended = () => {
 		<div className="container pt-5 mx-auto">
 			<SectionTitle subHeading={"----Should Try----"} heading={"Chief Recommends"} />
 			
-			<div className="grid grid-cols-3 gap-4">
+			<div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
 				<div className="card w-96 bg-base-100 shadow-xl">
 				<figure className="px-10 pt-10">
 					<img src="/menu/pizza-bg.jpg" alt="Shoes" className="rounded-xl" />
