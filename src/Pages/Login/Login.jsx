@@ -120,7 +120,7 @@ const handleLogin=(e)=>{
                       name="email"
                     />
                   </div>
-		{/* captcha */}
+		{/* captcha--------------------------------------------------------------------------- */}
 		<div className="mb-1 sm:mb-2">
                     <label
                       className="inline-block mb-1 font-medium"
@@ -153,7 +153,8 @@ const handleLogin=(e)=>{
                     />
                   </div>
                   <div className="mt-4 mb-2 sm:mb-4">
-                    <button disabled={disable}
+                    {/* TODO: button disabled for development . */}
+                    <button disabled={false}
                       type="submit"
                       className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
                     >

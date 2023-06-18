@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import * as RoutePath from '../../../Routes/RoutePath'
 import { AuthContext } from "../../../context/AuthProvider";
 import cartImg from '../../../assets/cart.gif'
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false); 
-  const {user,logOut}=useContext(AuthContext)
-  const navItem=<>
+  const {user,logOut}=useContext(AuthContext);
+  const [cart] =useCart();
+   const navItem=<>
                  
             <Link to={RoutePath.DASHBOARD} className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400" to=''>
               
@@ -27,7 +29,7 @@ const Navbar = () => {
             <Link to={RoutePath.CART}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
                 <button className="btn bg-transparent border-0 text-white hover:bg-lime-400">
                   <img src={cartImg} alt="" className="h-9" />
-                <div className="badge bg-red-400">+99</div>
+                <div className="badge border-0 bg-red-400">+{cart?.length || 0}</div>
               </button>
              </Link>
                         {
