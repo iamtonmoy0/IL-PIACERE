@@ -5,3 +5,5 @@ export const CART ='/cart'
 export const LOGIN='/login'
 export const SIGNUP='/register'
 
+export const MYCART='my-cart'
+
