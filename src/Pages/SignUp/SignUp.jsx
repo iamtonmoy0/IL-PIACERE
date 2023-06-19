@@ -14,14 +14,23 @@ const SignUp = () => {
     const onSubmit = data => {
         console.log(data);
         createUser(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
+            .then(() => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        console.log('user profile info updated')
-                        reset();
-                        Swal.fire({
+                        const savedUser={name:data.name,email:data.email};
+                        fetch('https://il-piacere-server.vercel.app/users',{
+                            
+                            method:'POST',
+                            headers:{
+                            'content-type':'application/json'
+                            },
+                            body:JSON.stringify(savedUser)
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            reset();
+                            if(data.insertedId){
+                                 Swal.fire({
                             position: 'top-end',
                             icon: 'success',
                             title: 'User created successfully.',
@@ -29,6 +38,10 @@ const SignUp = () => {
                             timer: 1500
                         });
                         navigate('/');
+                            }
+                        })
+                        
+                       
 
                     })
                     .catch(error => console.log(error))
@@ -38,7 +51,7 @@ const SignUp = () => {
     return (
         <>
             <Helmet>
-                <title>Bistro Boss | Sign Up</title>
+                <title> Sign Up</title>
             </Helmet>
             <div className="hero min-h-screen bg-base-200" >
                 <div className="hero-content flex-col lg:flex-row-reverse">

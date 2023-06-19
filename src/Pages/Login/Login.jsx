@@ -7,6 +7,7 @@ import loginImg from '../../assets/contact/banner.jpg';
 import { SIGNUP } from "../../Routes/RoutePath";
 import Swal from "sweetalert2";
 import Loading from "../Loading/Loading";
+import GoogleLogin from "../Shared/GoogleLogin/GoogleLogin";
 
 const Login = () => {
 	// submit button disable state
@@ -160,6 +161,7 @@ const handleLogin=(e)=>{
                     >
                       Login
                     </button>
+                    <GoogleLogin/>
                   </div>
                   <p className="text-xs text-gray-600 sm:text-sm">
                     We respect your privacy. Unsubscribe at any time.

@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login.jsx";
 import SignUp from "../Pages/SignUp/SignUp.jsx";
 import Dashboard from "../Layouts/Dashboard.jsx";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 
 export const route= createBrowserRouter([
@@ -36,15 +37,13 @@ export const route= createBrowserRouter([
 				path:RoutePath.SIGNUP,
 				element:<SignUp/>
 			},
-			{
-				
-			}
+			
 
 		]
 	},
 	{
 		path:RoutePath.CART,
-		element:<Dashboard/>,
+		element:<PrivateRoute><Dashboard/></PrivateRoute>,
 		children:[
 			{
 				path:RoutePath.MYCART,
