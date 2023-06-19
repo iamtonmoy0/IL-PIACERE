@@ -18,7 +18,7 @@ const SignUp = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const savedUser={name:data.name,email:data.email};
-                        fetch('https://il-piacere-server.vercel.app/users',{
+                        fetch('https://il-piacere-server-o976c9cqm-iamtonmoy0.vercel.app/users',{
                             
                             method:'POST',
                             headers:{

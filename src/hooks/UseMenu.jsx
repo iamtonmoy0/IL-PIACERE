@@ -5,7 +5,7 @@ const useMenu = () => {
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {
-        fetch('https://il-piacere-server.vercel.app/menu')
+        fetch('https://il-piacere-server-o976c9cqm-iamtonmoy0.vercel.app/menu')
             .then(res => res.json())
             .then(data => {
                 setMenu(data);

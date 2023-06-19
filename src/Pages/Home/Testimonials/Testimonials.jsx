@@ -14,7 +14,7 @@ const Testimonials = () => {
 	const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://il-piacere-server.vercel.app/reviews')
+        fetch('https://il-piacere-server-o976c9cqm-iamtonmoy0.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

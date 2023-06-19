@@ -17,7 +17,7 @@ const MyCart = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://il-piacere-server.vercel.app/carts/${item._id}`, {
+                fetch(`https://il-piacere-server-o976c9cqm-iamtonmoy0.vercel.app/carts/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

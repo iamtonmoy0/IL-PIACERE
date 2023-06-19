@@ -15,9 +15,8 @@ const GoogleLogin = () => {
         googleSignIn()
             .then(result => {
                 const loggedInUser = result.user;
-		if(!loggedInUser) return setLoading(false)
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('https://il-piacere-server.vercel.app/users', {
+                fetch('https://il-piacere-server-o976c9cqm-iamtonmoy0.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import {GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 import app from "../lib/firebase.config";
+import axios from "axios";
 
 export const AuthContext=createContext();
 const auth=getAuth(app)
@@ -38,6 +39,16 @@ const logOut = () => {
 	useEffect(()=>{
 		const unsubscribe =onAuthStateChanged(auth,currentUser=>{
 			setUser(currentUser)
+			//token set and get
+			if(currentUser){
+			axios.post('https://il-piacere-server-p2dv47q30-iamtonmoy0.vercel.app/jwt',{email:currentUser.email})
+			.then(data=>{
+				localStorage.setItem('access-token',data.data.token)
+			})
+			}else{
+				localStorage.removeItem('access-token')
+			}
+			//loading state
 			setLoading(false)
 		})
 		return ()=>{

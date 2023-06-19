@@ -26,7 +26,7 @@ const Navbar = () => {
                Our Shop
               
             </Link>
-            <Link to={RoutePath.CART}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+            <Link to={RoutePath.INFODASHBOARD}  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
                 <button className="btn bg-transparent border-0 text-white hover:bg-lime-400">
                   <img src={cartImg} alt="" className="h-9" />
                 <div className="badge border-0 bg-red-400">+{cart?.length || 0}</div>
