@@ -14,7 +14,7 @@ const FoodCard = ({item}) => {
 	const handleItem = (item)=>{
 		if(user){
 			const cartItem={itemId:_id,name,image,price,userEmail:user.email}
-			fetch('https://il-piacere-server.vercel.app/carts',{
+			fetch('https://il-piacere-server-p2dv47q30-iamtonmoy0.vercel.app/carts',{
 				method:'POST',
 				headers:{
 					'content-type':'application/json'

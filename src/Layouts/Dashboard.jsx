@@ -9,6 +9,7 @@ import menuImg from '../assets/dashboard/menu.gif'
 import orderImg from '../assets/dashboard/order.gif'
 import useCart from "../hooks/useCart";
 import {  FaWallet, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
+import useAdmin from "../hooks/useAdmin";
 
 
 
@@ -16,7 +17,9 @@ const Dashboard = () => {
 	const [cart]=useCart();
 
     //TODO : load data from server based on admin role
-    const isAdmin =true;
+    // const isAdmin =true;
+    const [isAdmin]=useAdmin();
+    console.log(isAdmin)
 	return (
 		<div className="drawer drawer-mobile lg:drawer-open ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
