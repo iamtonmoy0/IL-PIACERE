@@ -10,6 +10,7 @@ import Dashboard from "../Layouts/Dashboard.jsx";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers.jsx";
+import AddItem from "../Pages/Dashboard/AddItem/AddItem.jsx";
 
 
 export const route= createBrowserRouter([
@@ -53,6 +54,10 @@ export const route= createBrowserRouter([
 			{
 				path:RoutePath.ALLUSERS,
 				element:<AllUsers/>,
+			},
+			{
+				path:RoutePath.ADDITEM,
+				element:<AddItem/>
 			}
 		]
 	}

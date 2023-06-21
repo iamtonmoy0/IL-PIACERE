@@ -10,3 +10,4 @@ export const MYCART='my-cart'
 
 //admin route
 export const ALLUSERS ='all-users'
+export const ADDITEM='add-item'

@@ -9,7 +9,7 @@ import menuImg from '../assets/dashboard/menu.gif'
 import orderImg from '../assets/dashboard/order.gif'
 import useCart from "../hooks/useCart";
 import {  FaWallet, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
-import useAdmin from "../hooks/useAdmin";
+// import useAdmin from "../hooks/useAdmin";
 
 
 
@@ -17,9 +17,9 @@ const Dashboard = () => {
 	const [cart]=useCart();
 
     //TODO : load data from server based on admin role
-    // const isAdmin =true;
-    const [isAdmin]=useAdmin();
-    console.log(isAdmin)
+    const isAdmin =true;
+    // const [isAdmin]=useAdmin();
+    // console.log(isAdmin)
 	return (
 		<div className="drawer drawer-mobile lg:drawer-open ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -34,7 +34,7 @@ const Dashboard = () => {
                     {
                         isAdmin? <>  
                          <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/reservations"> <FaUtensils></FaUtensils> Add Items</NavLink></li>
+                            <li><NavLink to={RoutePath.ADDITEM}> <FaUtensils></FaUtensils> Add Items</NavLink></li>
                             <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Manage Items</NavLink></li>
                             <li><NavLink to="/dashboard/history"><FaBook></FaBook> Manage Bookings</NavLink></li>
                             <li><NavLink to={RoutePath.ALLUSERS}><FaUsers></FaUsers> All Users</NavLink></li>
