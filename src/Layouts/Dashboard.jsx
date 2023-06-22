@@ -35,7 +35,7 @@ const Dashboard = () => {
                         isAdmin? <>  
                          <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
                             <li><NavLink to={RoutePath.ADDITEM}> <FaUtensils></FaUtensils> Add Items</NavLink></li>
-                            <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Manage Items</NavLink></li>
+                            <li><NavLink to={RoutePath.MANAGE}><FaWallet></FaWallet> Manage Items</NavLink></li>
                             <li><NavLink to="/dashboard/history"><FaBook></FaBook> Manage Bookings</NavLink></li>
                             <li><NavLink to={RoutePath.ALLUSERS}><FaUsers></FaUsers> All Users</NavLink></li>
                             

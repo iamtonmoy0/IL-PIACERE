@@ -1,14 +1,45 @@
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+// import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
+const imageToken= import.meta.env.VITE_image_token;
 const AddItem = () => {
-	const [axiosSecure] = useAxiosSecure();
-    const { register, handleSubmit, reset } = useForm();
+	// const [axiosSecure] = useAxiosSecure();
+    const { register, handleSubmit } = useForm();
+    const imageHostingUrl=`https://api.imgbb.com/1/upload?key=${imageToken}`;
+
     const onSubmit=data=>{
-	console.log(data)
-    }
+        const formData = new FormData();
+        formData.append('image',data.image[0])
+        fetch(imageHostingUrl,{
+            method:'POST',
+            body:formData
+        })
+        .then(res=>res.json())
+        .then(imgRes=>{
+            const imgUrl = imgRes.data.display_url;
+            const {name,price,category,recipe}=data;
+            const newItem = {name,price,category,recipe,image:imgUrl};
+            console.log(newItem)
+            // console.log(imgUrl)
+            fetch('http://localhost:3000/menu',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(newItem)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                if(data.insertedId){
+                    alert('item added')
+                }
+            })
+        })
+	// console.log(data)
+}
+// console.log(imageToken)
 	return (
 		<div className="w-full bg-slate-50 ">
 			<Helmet>
