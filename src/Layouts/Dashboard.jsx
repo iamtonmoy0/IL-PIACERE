@@ -17,7 +17,7 @@ const Dashboard = () => {
 	const [cart]=useCart();
 
     //TODO : load data from server based on admin role
-    const isAdmin =true;
+    const isAdmin =false;
     // const [isAdmin]=useAdmin();
     // console.log(isAdmin)
 	return (

@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute.jsx";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers.jsx";
 import AddItem from "../Pages/Dashboard/AddItem/AddItem.jsx";
 import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems.jsx";
+import Payment from "../Pages/Dashboard/Payment/Payment.jsx";
 
 
 export const route= createBrowserRouter([
@@ -53,6 +54,10 @@ export const route= createBrowserRouter([
 				element:<MyCart/>
 			},
 			{
+				path:RoutePath.PAY,
+				element:<Payment/>
+			},
+			{
 				path:RoutePath.ALLUSERS,
 				element:<AllUsers/>,
 			},
@@ -63,7 +68,7 @@ export const route= createBrowserRouter([
 			{
 				path:RoutePath.MANAGE,
 				element:<ManageItems/>
-			}
+			},
 		]
 	}
 ])

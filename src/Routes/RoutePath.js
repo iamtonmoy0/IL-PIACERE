@@ -7,6 +7,7 @@ export const SIGNUP='/register'
 export const INFODASHBOARD ='/dashboard'
 //user route
 export const MYCART='my-cart'
+export const PAY='/dashboard/payment'
 
 //admin route
 export const ALLUSERS ='all-users'
